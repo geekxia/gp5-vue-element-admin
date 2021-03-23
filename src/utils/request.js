@@ -17,7 +17,7 @@ service.interceptors.request.use(
   config => {
     // do something before request is sent
     config.headers['Authorization'] = localStorage.getItem('token')
-    console.log('请求拦截器', config)
+    // console.log('请求拦截器', config)
     return config
   },
   error => {
@@ -42,7 +42,7 @@ service.interceptors.response.use(
   response => {
     const res = response.data
 
-    console.log('响应拦截器', res)
+    // console.log('响应拦截器', res)
 
     // if the custom code is not 20000, it is judged as an error.
     if (res.err !== 0) {
@@ -54,7 +54,7 @@ service.interceptors.response.use(
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
       // 为配合vuex，这里就不过滤了
-      return res
+      return res.data
     }
   },
   error => {

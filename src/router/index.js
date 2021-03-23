@@ -96,6 +96,25 @@ export const asyncRoutes = [
           title: '商品列表',
           roles: ['admin'] // or you can only set roles in sub nav
         }
+      },
+      {
+        path: 'create',
+        component: () => import('@/views/goods/GoodForm'),
+        name: '商品创建',
+        meta: {
+          title: '商品创建',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'edit/:id',
+        component: () => import('@/views/goods/GoodForm'),
+        name: '商品编辑',
+        hidden: true,
+        meta: {
+          title: '商品编辑',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
       }
     ]
   },

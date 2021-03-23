@@ -1,4 +1,4 @@
-const getters = {
+export default {
   sidebar: state => state.app.sidebar,
   size: state => state.app.size,
   device: state => state.app.device,
@@ -10,6 +10,6 @@ const getters = {
   introduction: state => state.user.introduction,
   roles: state => state.user.roles,
   permission_routes: state => state.permission.routes,
-  errorLogs: state => state.errorLog.logs
+  errorLogs: state => state.errorLog.logs,
+  cates: state => state.good.cates
 }
-export default getters

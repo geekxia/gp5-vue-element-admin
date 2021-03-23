@@ -34,11 +34,11 @@ const actions = {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
-        const { data } = response
+        const { token } = response
         // 触发mutations方法
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        localStorage.setItem('token', data.token)
+        commit('SET_TOKEN', token)
+        setToken(token)
+        localStorage.setItem('token', token)
         resolve()
       }).catch(error => {
         reject(error)

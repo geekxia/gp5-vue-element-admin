@@ -47,6 +47,8 @@ Vue.config.productionTip = false
 
 import api from '@/api'
 Vue.prototype.$api = api
+import util from '@/utils/util'
+Vue.prototype.$util = util
 
 new Vue({
   el: '#app',

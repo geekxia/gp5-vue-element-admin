@@ -81,7 +81,8 @@ export default {
       }
     },
     handleCurrentChange(val) {
-      this.$emit('pagination', { page: val, limit: this.pageSize })
+      // 添加一个flag标识，表示是page在发生变化
+      this.$emit('pagination', { page: val, limit: this.pageSize, flag: true })
       if (this.autoScroll) {
         scrollTo(0, 800)
       }
