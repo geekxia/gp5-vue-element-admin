@@ -50,7 +50,7 @@
         >
           <template slot-scope="scope">
             <div class="qf-good-info">
-              <img :src="'http://localhost:8888'+scope.row.img" alt="">
+              <img :src="$config.imgBase+scope.row.img" alt="">
               <div v-text="scope.row.name" />
             </div>
           </template>
@@ -172,8 +172,7 @@ export default {
         date: '',
         cate: ''
       },
-      total: 32,
-
+      total: 0,
       tableData: []
     }
   },
@@ -225,6 +224,11 @@ export default {
     // 删除操作
     rowHandle(row, type) {
       if (type === 'edit') {
+        // path和query一起使用，name和params一起使用
+        // this.$router.push({
+        //   name: 'edit',
+        //   params: { id: row._id }
+        // })
         this.$router.push('/goods/edit/' + row._id)
       } else {
         this.$api.fetchGoodDel({ ids: row._id }).then(() => {

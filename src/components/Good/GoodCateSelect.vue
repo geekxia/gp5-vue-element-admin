@@ -22,7 +22,7 @@
   <!-- 第二种写法 -->
   <div class="qf-good-cate-select">
     <el-select
-      v-model="cate"
+      v-model="c"
       placeholder="品类筛选"
       clearable
       style="width: 145px"
@@ -46,11 +46,24 @@ export default {
   },
   data() {
     return {
-      cate: this.value
+      cate: ''
     }
   },
+  created() {
+    this.$store.dispatch('good/getAllCates')
+  },
   computed: {
-    ...mapGetters(['cates'])
+    ...mapGetters(['cates']),
+    // 为select表单赋初始值
+    c: {
+      get() {
+        return this.cate || this.value
+      },
+      set(val) {
+        // console.log('val', val)
+        this.cate = val
+      }
+    }
   },
   watch: {
     cate() {
@@ -58,10 +71,6 @@ export default {
       this.$emit('input', this.cate)
       this.$emit('change')
     }
-  },
-  created() {
-    this.$store.dispatch('good/getAllCates')
-    // this.getAllCates()
   }
   // methods: {
   //   ...mapActions('good', ['getAllCates'])

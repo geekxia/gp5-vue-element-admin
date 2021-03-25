@@ -25,6 +25,33 @@ export function logout() {
   })
 }
 
+export function fetchAddUser(data) {
+  return request({
+    url: '/role/userAdd',
+    method: 'post',
+    data
+  })
+}
+
+export function fetchListUser(params) {
+  return request({
+    url: '/role/userList',
+    method: 'get',
+    params
+  })
+}
+
+export function fetchAllRoles(params) {
+  return request({
+    url: '/role/list',
+    method: 'get',
+    params
+  })
+}
+
 export default {
-  login
+  login,
+  fetchAddUser,
+  fetchListUser,
+  fetchAllRoles
 }

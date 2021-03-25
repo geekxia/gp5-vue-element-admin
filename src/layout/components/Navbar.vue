@@ -1,10 +1,16 @@
 <template>
   <div class="navbar">
+
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
     <div class="right-menu">
+      <!-- 用于显示socket订单信息提示 -->
+      <div class="msg">
+        <span :class="load ? 'on' : ''" />
+      </div>
+
       <template v-if="device!=='mobile'">
         <search id="header-search" class="right-menu-item" />
 
@@ -54,6 +60,8 @@ import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import Search from '@/components/HeaderSearch'
 
+import io from 'socket.io-client'
+
 export default {
   components: {
     Breadcrumb,
@@ -63,12 +71,32 @@ export default {
     SizeSelect,
     Search
   },
+  data() {
+    return {
+      load: false
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
       'avatar',
       'device'
     ])
+  },
+  mounted() {
+    var socket = io(this.$config.socketURL, {})
+    socket.on('connect', () => {
+      console.log('我是商家，已经连接上了socket')
+    })
+    // 从vuex中取出角色信息
+    // if(admin) {
+    //   socket.on('admin', ()=>{})
+    // }else if(shop) {
+    //   socket.on('shop', ()=>{})
+    // }
+    socket.on('shop', () => {
+      this.load = true
+    })
   },
   methods: {
     toggleSideBar() {
@@ -161,6 +189,20 @@ export default {
           font-size: 12px;
         }
       }
+    }
+  }
+  .msg {
+    float: left;
+    span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ccc;
+      margin-top: 15px;
+    }
+    span.on {
+      background: red;
     }
   }
 }

@@ -31,6 +31,7 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     port: port,
+    host: '10.36.138.28',
     open: true,
     overlay: {
       warnings: false,
@@ -40,7 +41,7 @@ module.exports = {
     // before: require('./mock/mock-server.js'),
     proxy: {
       '/api': {
-        target: 'http://localhost:8888',
+        target: 'http://10.36.138.28:8888',
         changeOrigin: true
       }
     }

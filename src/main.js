@@ -49,6 +49,8 @@ import api from '@/api'
 Vue.prototype.$api = api
 import util from '@/utils/util'
 Vue.prototype.$util = util
+import config from '@/utils/config'
+Vue.prototype.$config = config
 
 new Vue({
   el: '#app',

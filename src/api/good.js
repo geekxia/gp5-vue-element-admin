@@ -24,8 +24,26 @@ export function fetchGoodDel(data) {
   })
 }
 
+export function fetchGoodAddOrEdit(data) {
+  return request({
+    url: '/good/addOrEdit',
+    method: 'post',
+    data
+  })
+}
+
+export function fetchGoodDetail(params) {
+  return request({
+    url: '/good/detail',
+    method: 'get',
+    params: params || {}
+  })
+}
+
 export default {
   fetchGoodList,
   fetchAllCates,
-  fetchGoodDel
+  fetchGoodDel,
+  fetchGoodAddOrEdit,
+  fetchGoodDetail
 }

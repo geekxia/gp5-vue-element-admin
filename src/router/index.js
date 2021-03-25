@@ -61,7 +61,7 @@ export const asyncRoutes = [
     meta: {
       title: '权限管理',
       icon: 'lock',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['admin'] // you can set roles in root nav
     },
     children: [
       {
@@ -85,7 +85,7 @@ export const asyncRoutes = [
     meta: {
       title: '商品管理', // 面包屑
       icon: 'el-icon-s-goods',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['shop'] // you can set roles in root nav
     },
     children: [
       {
@@ -94,7 +94,7 @@ export const asyncRoutes = [
         name: '商品列表',
         meta: {
           title: '商品列表',
-          roles: ['admin'] // or you can only set roles in sub nav
+          roles: ['shop'] // or you can only set roles in sub nav
         }
       },
       {
@@ -103,7 +103,7 @@ export const asyncRoutes = [
         name: '商品创建',
         meta: {
           title: '商品创建',
-          roles: ['admin'] // or you can only set roles in sub nav
+          roles: ['shop'] // or you can only set roles in sub nav
         }
       },
       {
@@ -113,6 +113,29 @@ export const asyncRoutes = [
         hidden: true,
         meta: {
           title: '商品编辑',
+          roles: ['shop'] // or you can only set roles in sub nav
+        }
+      }
+    ]
+  },
+  {
+    path: '/manage',
+    component: Layout,
+    redirect: '/permission/page',
+    alwaysShow: true, // will always show the root menu
+    name: '系统管理',
+    meta: {
+      title: '系统管理',
+      icon: 'lock',
+      roles: ['admin'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'user',
+        component: () => import('@/views/admin/UserManage'),
+        name: '用户管理',
+        meta: {
+          title: '用户管理',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       }
