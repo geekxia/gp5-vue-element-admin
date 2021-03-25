@@ -1,7 +1,13 @@
-const imgBase = 'http://10.36.138.28:8888'
+// const imgBase = 'http://10.36.138.28:8888'
+const imgBase = 'http://3fengs.com'
 
-const baseURL = 'http://10.36.138.28:8002'
-const imgAction = 'http://10.36.138.28:8002/api/v1/upload/img'
+// const baseURL = 'http://10.36.138.28:8002'
+const baseURL = 'http://3fengs.com'
+
+// const imgAction = 'http://10.36.138.28:8002/api/v1/upload/img'
+
+const imgAction = 'http://3fengs.com/api/v1/upload/img'
+
 const socketURL = 'http://10.36.138.28:9999'
 
 export default {
