@@ -8,7 +8,7 @@ const baseURL = 'http://oa.3fengs.com'
 
 const imgAction = 'http://3fengs.com/api/v1/upload/img'
 
-const socketURL = 'ws://www.3fengs.com'
+const socketURL = 'http://120.78.158.204:9999'
 
 export default {
   imgBase,
