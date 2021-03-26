@@ -60,7 +60,7 @@ import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import Search from '@/components/HeaderSearch'
 
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 
 export default {
   components: {
@@ -84,19 +84,20 @@ export default {
     ])
   },
   mounted() {
-    var socket = io(this.$config.socketURL, {})
-    socket.on('connect', () => {
-      console.log('我是商家，已经连接上了socket')
-    })
+    // var socket = io(this.$config.socketURL, {})
+    // socket.on('connect', () => {
+    //   console.log('我是商家，已经连接上了socket')
+    // })
+
     // 从vuex中取出角色信息
     // if(admin) {
     //   socket.on('admin', ()=>{})
     // }else if(shop) {
     //   socket.on('shop', ()=>{})
     // }
-    socket.on('shop', () => {
-      this.load = true
-    })
+    // socket.on('shop', () => {
+    //   this.load = true
+    // })
   },
   methods: {
     toggleSideBar() {
